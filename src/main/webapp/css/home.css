@@ -1,0 +1,1350 @@
+
+/* =========================================================
+   MANA RUCHI — HOME PAGE
+   Theme: Forest Green | Warm Cream | Burnt Orange
+   File: /css/home.css
+   ========================================================= */
+
+
+/* =========================================================
+   0. THEME VARIABLES AND RESET
+   ========================================================= */
+
+:root {
+    --mr-green: #123C2F;
+    --mr-green-light: #1D5944;
+    --mr-cream: #FFF7E9;
+    --mr-white: #FFFFFF;
+    --mr-orange: #E8753D;
+    --mr-orange-dark: #CE5D2B;
+    --mr-brown: #2B211B;
+    --mr-muted: #776F67;
+    --mr-gold: #D9B878;
+    --mr-border: #EAE3D8;
+    --mr-shadow: 0 12px 35px rgba(43, 33, 27, 0.08);
+    --mr-radius: 18px;
+}
+
+.mr-home,
+.mr-home * {
+    box-sizing: border-box;
+}
+
+.mr-home {
+    color: var(--mr-brown);
+    background: var(--mr-cream);
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    overflow: clip;
+}
+
+.mr-home img {
+    display: block;
+    max-width: 100%;
+}
+
+.mr-home a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.mr-home button,
+.mr-home input {
+    font: inherit;
+}
+
+.mr-home-container {
+    width: min(1200px, calc(100% - 64px));
+    margin-inline: auto;
+}
+
+.mr-home-section {
+    padding: 76px 0;
+}
+
+.mr-home p {
+    line-height: 1.7;
+}
+
+
+/* 1. HERO SECTION BACKGROUND */
+
+.mr-home-hero {
+    position: relative;
+    z-index: 1;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+    background: #173D30;
+    overflow: hidden;
+}
+
+/* 2. FOOD IMAGE */
+
+.mr-home-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 3. PREMIUM GREEN OVERLAY */
+
+.mr-home-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        rgba(18, 49, 38, 0.94) 0%,
+        rgba(24, 59, 44, 0.86) 32%,
+        rgba(30, 57, 39, 0.60) 57%,
+        rgba(35, 45, 29, 0.20) 100%
+    );
+    pointer-events: none;
+}
+
+/* 4. HERO CONTENT LAYOUT */
+
+.mr-hero-layout {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 64px 0 135px;
+    box-sizing: border-box;
+}
+
+.mr-home-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 660px;
+    padding: 0 24px 0 48px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
+/* 5. INTRODUCTORY LABEL */
+
+.mr-home-hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 24px;
+    color: #F7C58F;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.7;
+    text-transform: uppercase;
+}
+
+/* Orange decorative dot */
+
+.mr-home-hero-dot {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #E8753D;
+    box-shadow: 0 0 0 5px rgba(232, 117, 61, 0.16);
+}
+
+/* 6. MAIN HERO HEADLINE */
+
+.mr-home-hero-content h1 {
+    max-width: 590px;
+    margin: 0;
+    color: #FFF7E9;
+    font-size: clamp(44px, 4.4vw, 64px);
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: -1.7px;
+    overflow-wrap: normal;
+    word-break: normal;
+    text-wrap: balance;
+}
+
+/* Highlighted final headline line */
+
+.mr-home-hero-content h1 span {
+    display: block;
+    margin-top: 5px;
+    color: #F7AD75;
+}
+
+/* 7. HERO DESCRIPTION */
+
+.mr-home-hero-description {
+    max-width: 450px;
+    margin: 22px 0 30px;
+    color: rgba(255, 247, 233, 0.90);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.85;
+}
+
+/* 8. HERO BUTTON CONTAINER */
+
+.mr-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* 9. EXPLORE RESTAURANTS BUTTON */
+
+.mr-home-featured-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    min-height: 54px;
+    padding: 0 27px;
+    border: 1px solid #E8753D;
+    border-radius: 11px;
+    background: #E8753D;
+    color: #FFFFFF !important;
+    font-size: 15px;
+    font-weight: 750;
+    line-height: 1.4;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Button arrow */
+
+.mr-home-featured-button span {
+    font-size: 20px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+/* Button hover */
+
+.mr-home-featured-button:hover {
+    background: #D9632D;
+    border-color: #D9632D;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+}
+
+.mr-home-featured-button:hover span {
+    transform: translateX(4px);
+}
+
+/* 10. TABLET AND SMALL LAPTOPS */
+
+@media (max-width: 1024px) {
+    .mr-home-hero {
+        min-height: 510px;
+    }
+
+    .mr-home-hero-content {
+        max-width: 590px;
+        padding-left: 36px;
+    }
+
+    .mr-home-hero-content h1 {
+        font-size: clamp(42px, 5.2vw, 56px);
+        letter-spacing: -1.2px;
+    }
+
+    .mr-home-hero::after {
+        background: linear-gradient(
+            90deg,
+            rgba(18, 49, 38, 0.95) 0%,
+            rgba(24, 59, 44, 0.86) 43%,
+            rgba(30, 57, 39, 0.45) 75%,
+            rgba(35, 45, 29, 0.24) 100%
+        );
+    }
+}
+
+/* 11. MOBILE RESPONSIVE STYLING */
+
+@media (max-width: 768px) {
+    .mr-home-hero {
+        min-height: 500px;
+        align-items: center;
+    }
+
+    .mr-home-hero-bg {
+        object-position: 60% center;
+    }
+
+    .mr-home-hero::after {
+        background: linear-gradient(
+            90deg,
+            rgba(18, 49, 38, 0.94) 0%,
+            rgba(24, 59, 44, 0.87) 60%,
+            rgba(24, 49, 37, 0.68) 100%
+        );
+    }
+
+    .mr-hero-layout {
+        padding: 54px 0 105px;
+    }
+
+    .mr-home-hero-content {
+        max-width: 100%;
+        padding: 0 26px;
+    }
+
+    .mr-home-hero-label {
+        gap: 10px;
+        margin-bottom: 20px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .mr-home-hero-content h1 {
+        max-width: 530px;
+        font-size: clamp(38px, 7.5vw, 52px);
+        line-height: 1.17;
+        letter-spacing: -1px;
+    }
+
+    .mr-home-hero-description {
+        max-width: 440px;
+        margin: 20px 0 26px;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+}
+
+/* 12. SMALL MOBILE SCREENS */
+
+@media (max-width: 420px) {
+    .mr-home-hero {
+        min-height: 470px;
+    }
+
+    .mr-home-hero-bg {
+        object-position: 62% center;
+    }
+
+    .mr-hero-layout {
+        padding-top: 42px;
+        padding-bottom: 90px;
+    }
+
+    .mr-home-hero-content {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .mr-home-hero-content h1 {
+        font-size: 37px;
+        line-height: 1.2;
+        letter-spacing: -0.7px;
+    }
+
+    .mr-home-hero-description {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .mr-home-featured-button {
+        min-height: 50px;
+        padding: 0 21px;
+        font-size: 14px;
+    }
+}
+
+/* 13. REDUCE MOTION FOR ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .mr-home-featured-button,
+    .mr-home-featured-button span {
+        transition: none;
+    }
+}
+
+/* =========================================================
+   2. LOCATION AND FOOD SEARCH
+   ========================================================= */
+
+/* Overlap the bottom edge of the hero */
+.mr-find-section {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1390px;
+    margin: -85px auto 0;
+    padding: 0 30px;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+/* Search card */
+.mr-find-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr);
+    align-items: center;
+    gap: 36px;
+    width: 100%;
+    min-width: 0;
+    padding: 38px 40px;
+    border: 1px solid rgba(217, 184, 120, 0.3);
+    border-radius: 24px;
+    background: var(--mr-cream);
+    box-shadow: 0 18px 48px rgba(43, 33, 27, 0.14);
+}
+
+.mr-find-intro {
+    min-width: 0;
+}
+
+.mr-home-kicker {
+    display: block;
+    margin-bottom: 11px;
+    color: var(--mr-orange-dark);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    line-height: 1.6;
+}
+
+.mr-find-intro h2 {
+    margin: 0;
+    color: var(--mr-green);
+    font-size: clamp(30px, 3vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.15;
+}
+
+.mr-find-intro p {
+    max-width: 390px;
+    margin: 13px 0 0;
+    color: var(--mr-muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Form container */
+.mr-find-content {
+    width: 100%;
+    min-width: 0;
+}
+
+.mr-find-search {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        auto;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.mr-find-field-wrap {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+/* Location and food input containers */
+.mr-find-location,
+.mr-find-food {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    min-width: 0;
+    min-height: 58px;
+    padding: 0 12px;
+    border: 1px solid var(--mr-border);
+    border-radius: 12px;
+    background: #FFFCF7;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.mr-find-location:focus-within,
+.mr-find-food:focus-within {
+    border-color: var(--mr-green-light);
+    box-shadow: 0 0 0 3px rgba(18, 60, 47, 0.09);
+    background: var(--mr-white);
+}
+
+/* Location / GPS button */
+.mr-location-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--mr-orange);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mr-location-button:hover {
+    background: #FFF0E5;
+    color: var(--mr-orange-dark);
+}
+
+.mr-location-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.mr-location-button svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+/* Input fields */
+.mr-find-location input,
+.mr-find-food input {
+    display: block;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    height: 54px;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--mr-brown);
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.mr-find-location input::placeholder,
+.mr-find-food input::placeholder {
+    color: #918477;
+    opacity: 1;
+}
+
+.mr-find-location input:focus,
+.mr-find-food input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Clear location button */
+.mr-clear-location {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--mr-muted);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.mr-clear-location:hover {
+    background: #F3EADF;
+    color: var(--mr-brown);
+}
+
+.mr-clear-location[hidden] {
+    display: none !important;
+}
+
+/* Food search icon */
+.mr-search-icon {
+    display: block;
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    color: var(--mr-orange);
+}
+
+/* Search button */
+.mr-find-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: auto;
+    width: auto;
+    min-width: 105px;
+    min-height: 58px;
+    padding: 0 20px;
+    border: 1px solid var(--mr-green);
+    border-radius: 11px;
+    background: var(--mr-green);
+    color: var(--mr-white);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 750;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.mr-find-submit:hover {
+    background: var(--mr-green-light);
+    box-shadow: 0 5px 14px rgba(18, 60, 47, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Location status message */
+.mr-location-message,
+#mrLocationMessage {
+    display: block;
+    min-height: 0;
+    margin: 0;
+    color: var(--mr-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.mr-location-message:empty,
+#mrLocationMessage:empty {
+    display: none;
+}
+
+.mr-location-message.success,
+#mrLocationMessage.success {
+    color: #176B42;
+}
+
+.mr-location-message.error,
+#mrLocationMessage.error {
+    color: #B42318;
+}
+
+.mr-location-message.loading,
+#mrLocationMessage.loading {
+    color: #805A16;
+}
+
+/* Location autocomplete suggestions */
+.mr-location-suggestions {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 7px);
+    left: 0;
+    right: 0;
+    display: none;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid var(--mr-border);
+    border-radius: 12px;
+    background: var(--mr-white);
+    box-shadow: 0 12px 28px rgba(43, 33, 27, 0.13);
+}
+
+.mr-location-suggestions.is-open {
+    display: block;
+}
+
+.mr-location-option {
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    border: 0;
+    border-bottom: 1px solid #F2EDE5;
+    background: var(--mr-white);
+    color: var(--mr-brown);
+    text-align: left;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.mr-location-option:last-child {
+    border-bottom: 0;
+}
+
+.mr-location-option:hover,
+.mr-location-option:focus-visible {
+    outline: none;
+    background: #FFF3E8;
+}
+
+
+/* =========================================================
+   3. SHARED SECTION HEADINGS
+   ========================================================= */
+
+.mr-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.mr-section-heading h2 {
+    margin: 0;
+    color: var(--mr-green);
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 800;
+    letter-spacing: -1.1px;
+    line-height: 1.2;
+}
+
+.mr-section-heading p {
+    margin: 9px 0 0;
+    color: var(--mr-muted);
+    font-size: 14px;
+}
+
+.mr-home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding-bottom: 5px;
+    color: var(--mr-green) !important;
+    font-size: 13px;
+    font-weight: 750;
+    transition: color 0.2s ease;
+}
+
+.mr-home-link:hover {
+    color: var(--mr-orange-dark) !important;
+}
+
+
+/* =========================================================
+   4. EXPLORE CUISINES
+   ========================================================= */
+
+.mr-cuisine-section {
+    padding-top: 55px;
+    padding-bottom: 78px;
+    background: var(--mr-cream);
+}
+
+.mr-cuisine-grid {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.mr-cuisine-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    color: var(--mr-brown) !important;
+    text-align: center;
+}
+
+.mr-cuisine-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 3px solid var(--mr-white);
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 14px rgba(43, 33, 27, 0.08);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.mr-cuisine-item:hover img {
+    transform: translateY(-5px) scale(1.035);
+    border-color: var(--mr-gold);
+    box-shadow: 0 12px 24px rgba(43, 33, 27, 0.13);
+}
+
+.mr-cuisine-item > span:last-child {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.mr-cuisine-all {
+    justify-content: center;
+}
+
+.mr-cuisine-all-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 2px dashed #D9CBB5;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    color: var(--mr-orange);
+    font-size: 35px;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.mr-cuisine-all:hover .mr-cuisine-all-icon {
+    transform: translateY(-5px);
+    border-color: var(--mr-orange);
+    background: var(--mr-white);
+}
+
+
+/* =========================================================
+   5. TRENDING / POPULAR DISHES
+   ========================================================= */
+
+.mr-trending-section {
+    padding-top: 76px;
+    padding-bottom: 80px;
+    background: var(--mr-white);
+}
+
+.mr-trending-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.mr-trending-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--mr-border);
+    border-radius: 15px;
+    background: var(--mr-white);
+    box-shadow: 0 4px 14px rgba(43, 33, 27, 0.035);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.mr-trending-card:hover {
+    transform: translateY(-5px);
+    border-color: #E2D4BE;
+    box-shadow: var(--mr-shadow);
+}
+
+.mr-trending-card > img {
+    width: 100%;
+    aspect-ratio: 1.2 / 1;
+    object-fit: cover;
+    background: #F1E8DA;
+    transition: transform 0.35s ease;
+}
+
+.mr-trending-card:hover > img {
+    transform: scale(1.035);
+}
+
+.mr-trending-card > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 15px 13px;
+}
+
+.mr-trending-card h3 {
+    margin: 0;
+    color: var(--mr-brown);
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.mr-trending-card > div > span {
+    flex-shrink: 0;
+    color: var(--mr-orange-dark);
+    font-size: 11px;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   6. SPECIAL OFFERS BANNER
+   ========================================================= */
+
+.mr-special-offer {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: stretch;
+    min-height: 300px;
+    margin-top: 55px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--mr-green);
+    box-shadow: var(--mr-shadow);
+}
+
+.mr-special-offer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 42px 48px;
+    color: var(--mr-white);
+}
+
+.mr-special-offer-content .mr-home-kicker {
+    color: #F2C48E;
+}
+
+.mr-special-offer-content h2 {
+    margin: 0;
+    color: var(--mr-white);
+    font-size: clamp(29px, 3.4vw, 43px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    line-height: 1.15;
+}
+
+.mr-special-offer-content p {
+    max-width: 430px;
+    margin: 15px 0 24px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.mr-special-offer-image {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.mr-special-offer-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(18, 60, 47, 0.15),
+        transparent 40%
+    );
+    pointer-events: none;
+}
+
+.mr-special-offer-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   7. ACCESSIBILITY
+   ========================================================= */
+
+.mr-home a:focus-visible,
+.mr-home button:focus-visible,
+.mr-home input:focus-visible {
+    outline: 3px solid var(--mr-orange);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mr-home *,
+    .mr-home *::before,
+    .mr-home *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* =========================================================
+   8. TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+    .mr-home-container {
+        width: calc(100% - 44px);
+    }
+
+    .mr-home-hero {
+        min-height: 510px;
+    }
+
+    .mr-hero-layout {
+        padding-top: 55px;
+        padding-bottom: 115px;
+    }
+
+    .mr-find-section {
+        margin-top: -75px;
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+
+    .mr-find-panel {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        padding: 32px;
+    }
+
+    .mr-find-intro h2 {
+        font-size: 36px;
+    }
+
+    .mr-find-intro p {
+        max-width: 560px;
+    }
+
+    .mr-find-search {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr)
+            auto;
+    }
+
+    .mr-find-submit {
+        grid-column: auto;
+        width: auto;
+    }
+
+    .mr-cuisine-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        row-gap: 26px;
+    }
+
+    .mr-cuisine-item {
+        max-width: 130px;
+        width: 100%;
+        justify-self: center;
+    }
+
+    .mr-trending-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mr-special-offer-content {
+        padding: 34px;
+    }
+}
+
+
+/* =========================================================
+   9. MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+    .mr-home-container {
+        width: calc(100% - 32px);
+    }
+
+    .mr-home-section {
+        padding: 52px 0;
+    }
+
+    .mr-home-hero {
+        min-height: 480px;
+    }
+
+    .mr-home-hero::after {
+        background: linear-gradient(
+            90deg,
+            rgba(10, 35, 26, 0.93),
+            rgba(10, 35, 26, 0.68)
+        );
+    }
+
+    .mr-home-hero-bg {
+        object-position: 62% center;
+    }
+
+    .mr-hero-layout {
+        padding-top: 48px;
+        padding-bottom: 100px;
+    }
+
+    .mr-home-hero-content {
+        width: 100%;
+    }
+
+    .mr-home-hero-label {
+        gap: 9px;
+        margin-bottom: 19px;
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
+
+    .mr-home-hero-content h1 {
+        font-size: clamp(39px, 10vw, 53px);
+        letter-spacing: -1.7px;
+        line-height: 1.08;
+    }
+
+    .mr-home-hero-description {
+        margin: 20px 0 25px;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .mr-home-featured-button {
+        min-height: 49px;
+        padding: 0 18px;
+        font-size: 13px;
+    }
+
+    /* Search card overlaps hero */
+    .mr-find-section {
+        margin-top: -48px;
+        margin-bottom: 0;
+        padding: 0 15px;
+    }
+
+    .mr-find-panel {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 21px;
+        padding: 25px 19px;
+        border-radius: 18px;
+    }
+
+    .mr-find-intro h2 {
+        font-size: 30px;
+        letter-spacing: -0.7px;
+    }
+
+    .mr-find-intro p {
+        margin-top: 9px;
+        font-size: 13px;
+    }
+
+    .mr-find-search {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .mr-find-location,
+    .mr-find-food {
+        min-height: 54px;
+    }
+
+    .mr-find-location input,
+    .mr-find-food input {
+        height: 52px;
+        font-size: 13px;
+    }
+
+    .mr-find-submit {
+        grid-column: auto;
+        width: 100%;
+        min-height: 50px;
+    }
+
+    .mr-location-suggestions {
+        max-height: 220px;
+    }
+
+    /* Shared headings */
+    .mr-section-heading {
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .mr-section-heading h2 {
+        font-size: 28px;
+        letter-spacing: -0.7px;
+    }
+
+    .mr-section-heading p {
+        font-size: 13px;
+    }
+
+    .mr-home-kicker {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
+
+    .mr-home-link {
+        margin-top: 23px;
+        font-size: 11px;
+    }
+
+    /* Cuisines */
+    .mr-cuisine-section {
+        padding-top: 42px;
+        padding-bottom: 55px;
+    }
+
+    .mr-cuisine-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 23px 12px;
+    }
+
+    .mr-cuisine-item {
+        max-width: none;
+        gap: 8px;
+    }
+
+    .mr-cuisine-item img {
+        border-width: 2px;
+    }
+
+    .mr-cuisine-item > span:last-child {
+        font-size: 11px;
+    }
+
+    .mr-cuisine-all-icon {
+        font-size: 29px;
+    }
+
+    /* Trending dishes */
+    .mr-trending-section {
+        padding-top: 54px;
+        padding-bottom: 55px;
+    }
+
+    .mr-trending-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .mr-trending-card {
+        border-radius: 12px;
+    }
+
+    .mr-trending-card > img {
+        aspect-ratio: 1.25 / 1;
+    }
+
+    .mr-trending-card > div {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+        padding: 12px;
+    }
+
+    .mr-trending-card h3 {
+        font-size: 13px;
+    }
+
+    .mr-trending-card > div > span {
+        font-size: 11px;
+    }
+
+    /* Special offer */
+    .mr-special-offer {
+        grid-template-columns: minmax(0, 1fr);
+        margin-top: 36px;
+        border-radius: 15px;
+    }
+
+    .mr-special-offer-content {
+        padding: 29px 23px;
+    }
+
+    .mr-special-offer-content h2 {
+        font-size: 31px;
+    }
+
+    .mr-special-offer-content p {
+        margin: 12px 0 21px;
+        font-size: 13px;
+    }
+
+    .mr-special-offer-image {
+        min-height: 190px;
+        max-height: 230px;
+    }
+
+    .mr-special-offer-image img {
+        min-height: 190px;
+        max-height: 230px;
+    }
+}
+
+
+/* =========================================================
+   10. SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+    .mr-home-container {
+        width: calc(100% - 24px);
+    }
+
+    .mr-home-hero-content h1 {
+        font-size: 37px;
+    }
+
+    .mr-home-hero-label {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .mr-find-section {
+        padding-right: 11px;
+        padding-left: 11px;
+    }
+
+    .mr-find-panel {
+        padding: 21px 15px;
+    }
+
+    .mr-find-intro h2 {
+        font-size: 27px;
+    }
+
+    .mr-section-heading h2 {
+        font-size: 25px;
+    }
+
+    .mr-cuisine-grid {
+        gap: 20px 8px;
+    }
+
+    .mr-cuisine-item > span:last-child {
+        font-size: 10px;
+    }
+
+    .mr-trending-grid {
+        gap: 10px;
+    }
+
+    .mr-trending-card > div {
+        padding: 10px;
+    }
+
+    .mr-trending-card h3 {
+        font-size: 12px;
+    }
+
+    .mr-special-offer-content {
+        padding: 24px 18px;
+    }
+}

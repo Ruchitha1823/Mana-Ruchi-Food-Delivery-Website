@@ -1,0 +1,735 @@
+```css
+/* =========================================
+   MANA RUCHI - RESTAURANT LISTING
+   ========================================= */
+
+:root {
+    --mr-green: #123C2F;
+    --mr-green-hover: #1B5140;
+    --mr-cream: #FFF7E9;
+    --mr-orange: #E8753D;
+    --mr-brown: #2B211B;
+    --mr-muted: #85766A;
+    --mr-border: #E8DED1;
+    --mr-surface: #FFFFFF;
+    --mr-image-bg: #F2EEE7;
+}
+
+.mr-restaurants-page {
+    margin: 0;
+    background: #FFFFFF;
+    color: var(--mr-brown);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.mr-restaurants-page *,
+.mr-restaurants-page *::before,
+.mr-restaurants-page *::after {
+    box-sizing: border-box;
+}
+
+.mr-restaurants-page button,
+.mr-restaurants-page input,
+.mr-restaurants-page select {
+    font-family: inherit;
+}
+
+.mr-restaurants-main {
+    width: min(1440px, calc(100% - 72px));
+    margin: 0 auto;
+    padding: 38px 0 80px;
+}
+
+/* Page heading */
+
+.mr-restaurants-heading {
+    margin-bottom: 36px;
+}
+
+.mr-section-eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--mr-orange);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.mr-restaurants-heading h1 {
+    margin: 0 0 16px;
+    color: var(--mr-green);
+    font-size: clamp(36px, 4vw, 54px);
+    line-height: 1.12;
+    letter-spacing: -1.4px;
+}
+
+.mr-restaurants-heading p {
+    margin: 0;
+    color: var(--mr-muted);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Cuisine shortcuts */
+
+.mr-cuisine-shortcuts {
+    margin-bottom: 44px;
+}
+
+.mr-cuisine-shortcuts h2 {
+    margin: 0 0 22px;
+    color: var(--mr-brown);
+    font-size: 24px;
+}
+
+.mr-cuisine-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.mr-cuisine-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 47px;
+    padding: 11px 22px;
+    border: 1px solid var(--mr-border);
+    border-radius: 30px;
+    background: #FFFFFF;
+    color: var(--mr-brown);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.mr-cuisine-chip:hover {
+    border-color: var(--mr-green);
+    color: var(--mr-green);
+    transform: translateY(-1px);
+}
+
+.mr-cuisine-chip.active {
+    border-color: var(--mr-green);
+    background: var(--mr-green);
+    color: var(--mr-cream);
+}
+
+/* Results and layout */
+
+.mr-restaurant-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+
+.mr-restaurant-results {
+    min-width: 0;
+}
+
+.mr-results-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 26px;
+}
+
+.mr-results-toolbar h2 {
+    margin: 0 0 9px;
+    color: var(--mr-brown);
+    font-size: 29px;
+}
+
+.mr-results-toolbar p {
+    margin: 0;
+    color: var(--mr-muted);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.mr-results-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 13px;
+    flex-shrink: 0;
+}
+
+/* Filter button */
+
+.mr-open-filters {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 46px;
+    padding: 11px 17px;
+    border: 1px solid var(--mr-green);
+    border-radius: 12px;
+    background: var(--mr-green);
+    color: var(--mr-cream);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.mr-open-filters:hover {
+    background: var(--mr-green-hover);
+    transform: translateY(-1px);
+}
+
+.mr-open-filters:focus-visible,
+.mr-sort-control select:focus-visible,
+.mr-filter-sidebar button:focus-visible {
+    outline: 3px solid rgba(232, 117, 61, .45);
+    outline-offset: 3px;
+}
+
+
+
+
+/* ========================================
+   MANA RUCHI - SORT DROPDOWN
+======================================== */
+
+.mr-sort-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+}
+
+/* Sort label */
+.mr-sort-control span {
+    color: #123C2F;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* Dropdown */
+.mr-sort-control select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    min-width: 200px;
+    height: 48px;
+    padding: 0 46px 0 18px;
+
+    border: 1px solid #DCCFBD;
+    border-radius: 14px;
+
+    background-color: #FFF7E9;
+    color: #123C2F;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23123C2F' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+
+    cursor: pointer;
+    outline: none;
+
+    box-shadow: 0 3px 10px rgba(43, 33, 27, 0.05);
+    transition: border-color 0.2s ease,
+                background-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* Hover */
+.mr-sort-control select:hover {
+    background-color: #FFFFFF;
+    border-color: #123C2F;
+    box-shadow: 0 4px 14px rgba(18, 60, 47, 0.10);
+}
+
+/* Focus */
+.mr-sort-control select:focus {
+    border-color: #123C2F;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(18, 60, 47, 0.12);
+}
+
+/* Individual options - browser styling may vary */
+.mr-sort-control select option {
+    background-color: #FFF7E9;
+    color: #123C2F;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 12px;
+}
+
+/* Selected option */
+.mr-sort-control select option:checked {
+    background-color: #123C2F;
+    color: #FFFFFF;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .mr-sort-control {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .mr-sort-control select {
+        min-width: 0;
+        max-width: 240px;
+        flex: 1;
+    }
+}
+
+/* Restaurant grid */
+
+.mr-restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.mr-restaurant-card {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(232, 222, 209, .8);
+    border-radius: 22px;
+    background: var(--mr-surface);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 7px 28px rgba(43, 33, 27, .055);
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+}
+
+.mr-restaurant-card:hover {
+    transform: translateY(-4px);
+    border-color: #D9C8B7;
+    box-shadow: 0 14px 35px rgba(43, 33, 27, .11);
+}
+
+.mr-restaurant-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: var(--mr-image-bg);
+}
+
+.mr-restaurant-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .35s ease;
+}
+
+.mr-restaurant-card:hover .mr-restaurant-image {
+    transform: scale(1.04);
+}
+
+.mr-restaurant-info {
+    padding: 19px 19px 21px;
+}
+
+.mr-restaurant-info h3 {
+    margin: 0 0 12px;
+    color: var(--mr-brown);
+    font-size: 21px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.mr-restaurant-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 12px;
+    color: #655A51;
+    font-size: 14px;
+}
+
+.mr-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--mr-green);
+    font-weight: 700;
+}
+
+.mr-rating-star {
+    color: #D9A441;
+    font-size: 17px;
+}
+
+.mr-meta-dot {
+    color: #B6A99C;
+}
+
+.mr-restaurant-cuisine {
+    margin: 0 0 10px;
+    color: #6F6258;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.mr-restaurant-location {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0;
+    color: var(--mr-muted);
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.mr-restaurant-location span {
+    padding-top: 2px;
+    color: var(--mr-orange);
+}
+
+/* Empty state */
+
+.mr-no-restaurants {
+    padding: 55px 22px;
+    border: 1px dashed var(--mr-border);
+    border-radius: 18px;
+    background: #FFFCF7;
+    text-align: center;
+}
+
+.mr-empty-icon {
+    font-size: 38px;
+}
+
+.mr-no-restaurants h3 {
+    margin: 15px 0 8px;
+    color: var(--mr-green);
+    font-size: 24px;
+}
+
+.mr-no-restaurants p {
+    margin: 0 0 20px;
+    color: var(--mr-muted);
+    line-height: 1.6;
+}
+
+.mr-no-restaurants button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 10px;
+    background: var(--mr-green);
+    color: var(--mr-cream);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Filter backdrop */
+
+.mr-filter-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(25, 32, 28, .48);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+.mr-filter-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.mr-filters-open {
+    overflow: hidden;
+}
+
+/* Right-side filter drawer */
+
+.mr-filter-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+    width: min(410px, 92vw);
+    max-width: 100%;
+    padding: 26px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #FFFFFF;
+    border-left: 1px solid var(--mr-border);
+    border-radius: 20px 0 0 20px;
+    box-shadow: -12px 0 45px rgba(43, 33, 27, .15);
+    transform: translateX(105%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform .28s ease, visibility .28s ease;
+}
+
+.mr-filter-sidebar.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mr-filter-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--mr-border);
+}
+
+.mr-filter-heading h2 {
+    margin: 0 0 7px;
+    color: var(--mr-green);
+    font-size: 27px;
+}
+
+.mr-filter-heading p {
+    margin: 0;
+    color: var(--mr-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.mr-filter-heading-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mr-clear-filters {
+    padding: 7px 0;
+    border: none;
+    background: transparent;
+    color: var(--mr-orange);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mr-clear-filters:hover {
+    color: #B94C20;
+    text-decoration: underline;
+}
+
+.mr-close-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: 1px solid var(--mr-border);
+    border-radius: 50%;
+    background: var(--mr-cream);
+    color: var(--mr-green);
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.mr-close-filters:hover {
+    background: #F1E5D3;
+}
+
+/* Filter groups */
+
+.mr-filter-group {
+    padding: 20px 0;
+    border-bottom: 1px solid #F0E8DF;
+}
+
+.mr-filter-group h3 {
+    margin: 0 0 15px;
+    color: var(--mr-brown);
+    font-size: 17px;
+}
+
+.mr-filter-option {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 13px 0;
+    color: #655A51;
+    font-size: 14px;
+    line-height: 1.45;
+    cursor: pointer;
+}
+
+.mr-filter-option input {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: var(--mr-green);
+    cursor: pointer;
+}
+
+.mr-filter-option:hover span {
+    color: var(--mr-green);
+}
+
+/* Apply button */
+
+.mr-filter-sidebar .mr-apply-filters {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 22px;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 12px;
+    background: var(--mr-green);
+    color: var(--mr-cream);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.mr-filter-sidebar .mr-apply-filters:hover {
+    background: var(--mr-green-hover);
+    transform: translateY(-1px);
+}
+
+/* JavaScript hidden states */
+
+.mr-restaurant-card[hidden],
+.mr-no-restaurants[hidden],
+.mr-restaurant-grid[hidden] {
+    display: none !important;
+}
+
+/* Responsive layouts */
+
+@media (max-width: 1100px) {
+    .mr-restaurant-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .mr-restaurant-image-wrap {
+        height: 205px;
+    }
+
+    .mr-results-toolbar {
+        align-items: flex-start;
+    }
+
+    .mr-results-actions {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 700px) {
+    .mr-restaurants-main {
+        width: calc(100% - 32px);
+        padding-top: 27px;
+    }
+
+    .mr-restaurants-heading {
+        margin-bottom: 28px;
+    }
+
+    .mr-section-eyebrow {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .mr-restaurants-heading h1 {
+        font-size: 35px;
+    }
+
+    .mr-restaurants-heading p {
+        font-size: 16px;
+    }
+
+    .mr-cuisine-shortcuts {
+        margin-bottom: 32px;
+    }
+
+    .mr-cuisine-chips {
+        gap: 9px;
+    }
+
+    .mr-cuisine-chip {
+        min-height: 42px;
+        padding: 9px 15px;
+        font-size: 13px;
+    }
+
+    .mr-results-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 17px;
+    }
+
+    .mr-results-toolbar h2 {
+        font-size: 25px;
+    }
+
+    .mr-results-actions {
+        justify-content: space-between;
+        gap: 9px;
+    }
+
+    .mr-sort-control {
+        gap: 7px;
+    }
+
+    .mr-sort-control select {
+        min-width: 0;
+        max-width: 165px;
+    }
+
+    .mr-restaurant-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .mr-restaurant-image-wrap {
+        height: 225px;
+    }
+
+    .mr-filter-sidebar {
+        width: min(390px, 94vw);
+        padding: 22px 18px;
+        border-radius: 16px 0 0 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mr-restaurants-page *,
+    .mr-restaurants-page *::before,
+    .mr-restaurants-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}
+```

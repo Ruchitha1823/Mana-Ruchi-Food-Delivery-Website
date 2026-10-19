@@ -1,0 +1,1205 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+/* =========================================
+   MANA RUCHI - NAVBAR
+   Desktop:
+   Logo | Location | Search | Home | Restaurants | Cart | Login
+   ========================================= */
+
+:root {
+    --mr-green: #123C2F;
+    --mr-green-hover: #1D5140;
+    --mr-cream: #FFF7E9;
+    --mr-orange: #E8753D;
+    --mr-orange-hover: #CF5E2B;
+    --mr-ink: #2B211B;
+    --mr-muted: #81766D;
+    --mr-border: #EAE4DA;
+    --mr-white: #FFFFFF;
+    --mr-soft: #F8F5EF;
+    --mr-shadow: 0 16px 42px rgba(24, 40, 30, 0.13);
+}
+
+/* Box sizing */
+.mr-header *,
+.mr-header *::before,
+.mr-header *::after,
+.mr-login-overlay *,
+.mr-login-overlay *::before,
+.mr-login-overlay *::after {
+    box-sizing: border-box;
+}
+
+/* Header */
+.mr-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: var(--mr-white);
+    color: var(--mr-ink);
+    border-bottom: 1px solid var(--mr-border);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.mr-header a,
+.mr-header button,
+.mr-login-overlay button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   MAIN NAVBAR
+   ========================================= */
+
+.mr-navbar {
+    width: 100%;
+    max-width: 1900px;
+    min-height: 104px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+/* Brand */
+.mr-brand {
+    flex: 0 0 315px;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--mr-green);
+    text-decoration: none;
+}
+
+.mr-logo {
+    display: block;
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.mr-brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.mr-brand-name {
+    color: var(--mr-green);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+.mr-brand-tagline {
+    color: var(--mr-muted);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.35;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   DELIVERY LOCATION
+========================================= */
+
+.mr-location {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 340px;
+    min-width: 0;
+    height: 64px;
+    padding: 0 18px;
+    border-left: 1px solid var(--mr-border);
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+/* Location pin and optional label */
+.mr-location-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.mr-location-top svg {
+    display: block;
+    width: 21px;
+    height: 21px;
+    flex: 0 0 21px;
+    fill: var(--mr-orange);
+    stroke: var(--mr-orange);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mr-location-top svg circle {
+    fill: var(--mr-white);
+    stroke: var(--mr-white);
+}
+
+.mr-location-top span {
+    display: none;
+}
+
+/* Location input and current-location button */
+.mr-location-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+}
+
+.mr-location-field input {
+    display: block;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    height: 36px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--mr-ink);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+
+.mr-location-field input::placeholder {
+    color: #9A9186;
+    font-weight: 400;
+    opacity: 1;
+}
+
+/* Current-location button */
+.mr-location-button {
+    display: inline-flex;
+    flex: 0 0 32px;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--mr-green);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mr-location-button:hover {
+    background: #EDF3EE;
+    color: var(--mr-orange);
+}
+
+.mr-location-button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+}
+
+.mr-location-button svg {
+    display: block;
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Location status message */
+.mr-location-message {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 18px;
+    z-index: 1200;
+    display: block;
+    width: max-content;
+    max-width: 280px;
+    padding: 9px 12px;
+    border: 1px solid var(--mr-border);
+    border-radius: 8px;
+    background: var(--mr-white);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    color: var(--mr-green);
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: normal;
+    box-sizing: border-box;
+}
+
+.mr-location-message:empty {
+    display: none;
+}
+
+/* Tablet and smaller desktop screens */
+@media (max-width: 1100px) {
+    .mr-location {
+        flex: 0 1 260px;
+        gap: 8px;
+        padding: 0 10px;
+    }
+
+    .mr-location-field input {
+        font-size: 13px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 700px) {
+    .mr-location {
+        flex: 1 1 100%;
+        width: 100%;
+        height: 44px;
+        padding: 0 10px;
+        border-left: none;
+        border-top: 1px solid var(--mr-border);
+    }
+
+    .mr-location-message {
+        left: 10px;
+        max-width: calc(100vw - 40px);
+    }
+}
+
+
+/* =========================================
+   SEARCH BAR
+   Wider on large screens
+   ========================================= */
+
+.mr-search {
+    flex: 1 1 360px;
+    width: 360px;
+    min-width: 250px;
+    max-width: 430px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 8px 0 16px;
+    border: 1px solid #E7E1D7;
+    border-radius: 12px;
+    background: var(--mr-soft);
+    transition: border-color 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.mr-search:focus-within {
+    border-color: #9CAF9F;
+    background: var(--mr-white);
+    box-shadow: 0 0 0 3px rgba(18, 60, 47, 0.06);
+}
+
+.mr-search-icon {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: var(--mr-muted);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+.mr-search input {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--mr-ink);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.mr-search input::placeholder {
+    color: #948A7F;
+}
+
+.mr-search button {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--mr-green);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mr-search button:hover {
+    background: var(--mr-green);
+    color: var(--mr-white);
+}
+
+.mr-search button svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* =========================================
+   HOME AND RESTAURANTS
+   More space between links
+   ========================================= */
+
+.mr-desktop-nav {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    white-space: nowrap;
+}
+
+.mr-nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 9px 0;
+    color: var(--mr-ink);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.mr-nav-link::after {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    left: 0;
+    height: 2px;
+    border-radius: 3px;
+    background: var(--mr-orange);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+}
+
+.mr-nav-link:hover {
+    color: var(--mr-green);
+}
+
+.mr-nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* =========================================
+   CART AND LOGIN
+   Login stays at the far right
+   ========================================= */
+
+.mr-actions {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 25px;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.mr-cart {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--mr-green);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.mr-cart:hover {
+    color: var(--mr-orange);
+}
+
+.mr-cart-icon {
+    position: relative;
+    width: 32px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mr-cart-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mr-cart-count {
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid var(--mr-white);
+    border-radius: 20px;
+    background: var(--mr-orange);
+    color: var(--mr-white);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.mr-login-button,
+.mr-account-button {
+    min-width: 100px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 22px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease;
+}
+
+.mr-login-button {
+    border: 1px solid var(--mr-green);
+    background: var(--mr-green);
+    color: var(--mr-white);
+}
+
+.mr-login-button:hover {
+    border-color: var(--mr-green-hover);
+    background: var(--mr-green-hover);
+}
+
+.mr-account {
+    position: relative;
+}
+
+.mr-account-button {
+    border: 1px solid var(--mr-border);
+    background: var(--mr-white);
+    color: var(--mr-green);
+}
+
+.mr-account-button:hover {
+    border-color: #C6D2C9;
+    background: #F5F8F4;
+}
+
+.mr-account-button > svg:first-child {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mr-chevron {
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    transition: transform 0.2s ease;
+}
+
+.mr-account-button[aria-expanded="true"] .mr-chevron {
+    transform: rotate(180deg);
+}
+
+.mr-account-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    z-index: 1300;
+    width: 190px;
+    display: none;
+    padding: 6px;
+    border: 1px solid var(--mr-border);
+    border-radius: 10px;
+    background: var(--mr-white);
+    box-shadow: var(--mr-shadow);
+}
+
+.mr-account-menu.mr-account-menu-open {
+    display: block;
+    animation: mrMenuAppear 0.15s ease-out;
+}
+
+.mr-account-menu a {
+    display: block;
+    padding: 11px 12px;
+    border-radius: 7px;
+    color: var(--mr-ink);
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mr-account-menu a:hover {
+    background: var(--mr-soft);
+    color: var(--mr-green);
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+   ========================================= */
+
+.mr-menu-toggle {
+    display: none;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+    border: 1px solid var(--mr-border);
+    border-radius: 9px;
+    background: var(--mr-white);
+    cursor: pointer;
+}
+
+.mr-menu-toggle span {
+    display: block;
+    width: 19px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--mr-green);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mr-menu-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mr-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.mr-menu-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.mr-mobile-menu {
+    display: none;
+}
+
+/* =========================================
+   LOGIN MODAL
+   ========================================= */
+
+.mr-login-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(18, 35, 27, 0.62);
+    backdrop-filter: blur(5px);
+}
+
+.mr-login-overlay.mr-login-overlay-open {
+    display: flex;
+    animation: mrFadeIn 0.18s ease-out;
+}
+
+.mr-login-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 38px 34px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    background: var(--mr-white);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.22);
+    text-align: center;
+    animation: mrDialogIn 0.22s ease-out;
+}
+
+.mr-modal-close {
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--mr-soft);
+    color: var(--mr-ink);
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.mr-modal-close:hover {
+    background: #EFE7DB;
+}
+
+.mr-modal-mark {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 17px;
+    border-radius: 17px;
+    background: var(--mr-green);
+    color: var(--mr-white);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.mr-modal-eyebrow {
+    margin: 0 0 9px;
+    color: var(--mr-orange);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
+
+.mr-login-dialog h2 {
+    margin: 0 0 10px;
+    color: var(--mr-green);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 27px;
+    line-height: 1.25;
+}
+
+.mr-modal-description {
+    margin: 0 0 25px;
+    color: var(--mr-muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.mr-login-dialog form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.mr-login-dialog form label {
+    margin: 0 0 7px;
+    color: var(--mr-ink);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.mr-login-dialog form input {
+    width: 100%;
+    height: 46px;
+    margin-bottom: 17px;
+    padding: 0 13px;
+    border: 1px solid var(--mr-border);
+    border-radius: 8px;
+    outline: none;
+    background: #FFFEFC;
+    color: var(--mr-ink);
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mr-login-dialog form input:focus {
+    border-color: #8DA797;
+    box-shadow: 0 0 0 3px rgba(18, 60, 47, 0.07);
+}
+
+.mr-login-submit {
+    min-height: 47px;
+    margin-top: 3px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--mr-green);
+    color: var(--mr-white);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.mr-login-submit:hover {
+    background: var(--mr-green-hover);
+}
+
+.mr-register-prompt {
+    margin: 22px 0 0;
+    color: var(--mr-muted);
+    font-size: 12px;
+}
+
+.mr-register-prompt a {
+    color: var(--mr-green);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.mr-register-prompt a:hover {
+    color: var(--mr-orange);
+    text-decoration: underline;
+}
+
+body.mr-login-lock {
+    overflow: hidden;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes mrFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes mrDialogIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes mrMenuAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   LAPTOP
+   ========================================= */
+
+@media (min-width: 1121px) and (max-width: 1600px) {
+    .mr-navbar {
+        gap: 15px;
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+
+    .mr-brand {
+        flex-basis: 250px;
+        gap: 9px;
+    }
+
+    .mr-logo {
+        flex-basis: 49px;
+        width: 49px;
+        height: 49px;
+    }
+
+    .mr-brand-name {
+        font-size: 22px;
+    }
+
+    .mr-brand-tagline {
+        font-size: 10px;
+    }
+
+    .mr-location {
+        flex-basis: 225px;
+        padding-left: 13px;
+    }
+
+    .mr-location-field input {
+        font-size: 12px;
+    }
+
+    .mr-search {
+        flex: 1 1 300px;
+        width: 300px;
+        min-width: 210px;
+        max-width: 390px;
+    }
+
+    .mr-desktop-nav {
+        gap: 25px;
+    }
+
+    .mr-nav-link {
+        font-size: 14px;
+    }
+
+    .mr-actions {
+        gap: 17px;
+    }
+
+    .mr-login-button,
+    .mr-account-button {
+        min-width: 85px;
+        padding: 0 16px;
+    }
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1120px) {
+    .mr-navbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13px 16px;
+        padding: 13px 20px;
+    }
+
+    .mr-brand {
+        flex: 1 1 220px;
+        min-width: 200px;
+    }
+
+    .mr-location {
+        flex: 1 1 190px;
+        min-width: 165px;
+    }
+
+    .mr-search {
+        flex: 1 1 280px;
+        width: auto;
+        min-width: 200px;
+        max-width: none;
+    }
+
+    .mr-desktop-nav {
+        display: none;
+    }
+
+    .mr-actions {
+        flex: 0 0 auto;
+        gap: 12px;
+    }
+
+    .mr-menu-toggle {
+        display: inline-flex;
+    }
+
+    .mr-mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        padding: 10px 20px 17px;
+        border-top: 1px solid var(--mr-border);
+        background: var(--mr-white);
+    }
+
+    .mr-mobile-menu.mr-mobile-menu-open {
+        display: flex;
+        animation: mrMenuAppear 0.16s ease-out;
+    }
+
+    .mr-mobile-menu a,
+    .mr-mobile-menu button {
+        display: block;
+        width: 100%;
+        padding: 12px 13px;
+        border: 0;
+        border-radius: 7px;
+        background: transparent;
+        color: var(--mr-ink);
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .mr-mobile-menu a:hover,
+    .mr-mobile-menu button:hover {
+        background: var(--mr-soft);
+        color: var(--mr-green);
+    }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
+    .mr-navbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 13px 10px;
+        padding: 12px 15px 15px;
+    }
+
+    .mr-brand {
+        grid-column: 1;
+        grid-row: 1;
+        min-width: 0;
+        flex-basis: auto;
+        gap: 8px;
+    }
+
+    .mr-logo {
+        flex-basis: 43px;
+        width: 43px;
+        height: 43px;
+    }
+
+    .mr-brand-name {
+        font-size: 20px;
+    }
+
+    .mr-brand-tagline {
+        font-size: 9px;
+    }
+
+    .mr-actions {
+        grid-column: 2;
+        grid-row: 1;
+        flex: 0 0 auto;
+        gap: 9px;
+    }
+
+    .mr-cart {
+        gap: 0;
+    }
+
+    .mr-cart-label {
+        display: none;
+    }
+
+    .mr-cart-icon {
+        width: 28px;
+    }
+
+    .mr-login-button,
+    .mr-account-button {
+        min-width: 0;
+        min-height: 39px;
+        padding: 0 11px;
+        font-size: 12px;
+    }
+
+    .mr-account-button {
+        gap: 5px;
+    }
+
+    .mr-account-button .mr-chevron {
+        display: none;
+    }
+
+    .mr-menu-toggle {
+        flex-basis: 39px;
+        width: 39px;
+        height: 39px;
+    }
+
+    .mr-location {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+        border-left: 0;
+    }
+
+    .mr-location-top {
+        margin-bottom: 4px;
+    }
+
+    .mr-location-field input {
+        font-size: 13px;
+    }
+
+    .mr-search {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        height: 45px;
+    }
+
+    .mr-login-dialog {
+        padding: 35px 23px 25px;
+        border-radius: 15px;
+    }
+
+    .mr-login-dialog h2 {
+        font-size: 24px;
+    }
+}
+
+/* Very narrow phones */
+@media (max-width: 380px) {
+    .mr-navbar {
+        padding-right: 10px;
+        padding-left: 10px;
+        gap: 12px 7px;
+    }
+
+    .mr-logo {
+        flex-basis: 37px;
+        width: 37px;
+        height: 37px;
+    }
+
+    .mr-brand {
+        gap: 6px;
+    }
+
+    .mr-brand-name {
+        font-size: 18px;
+    }
+
+    .mr-brand-tagline {
+        font-size: 8px;
+    }
+
+    .mr-actions {
+        gap: 6px;
+    }
+
+    .mr-login-button,
+    .mr-account-button {
+        padding: 0 8px;
+    }
+}
+
+
+/* Compact Mana Ruchi Navbar */
+.mr-navbar {
+    min-height: 100px;
+    height: 100px;
+    padding: 12px 24px;
+    background: #FFF9F0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #EEE5D8;
+}
+
+/* Keep navbar items compact and aligned */
+.mr-navbar,
+.mr-navbar * {
+    box-sizing: border-box;
+}
+
+.mr-navbar {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo section */
+.mr-logo img {
+    max-height: 54px;
+    width: auto;
+}
+
+.mr-logo {
+    flex-shrink: 0;
+}
+
+/* Delivery location */
+.mr-location {
+    height: 56px;
+}
+
+/* Search bar */
+.mr-search {
+    height: 48px;
+}
+
+/* Navigation links */
+.mr-navbar a {
+    white-space: nowrap;
+}
+
+/* Login button */
+.mr-login {
+    min-height: 48px;
+    padding: 0 26px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .mr-navbar {
+        height: auto;
+        min-height: 76px;
+        padding: 10px 14px;
+        flex-wrap: wrap;
+    }
+}
+
